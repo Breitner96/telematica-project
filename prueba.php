@@ -13,23 +13,31 @@ $stmt=mysqli_query($con,$query);
 
 while($data=$stmt->fetch_assoc()){
 
-    $datos[]=$data['password'];
+    $passwords[]=$data['password'];
+    $emails[]=$data['email'];
 
 }
 
-print_r($datos);
 
-foreach ($datos as $value) {
+print_r($passwords);
+print_r($emails);
+
+
+foreach ($passwords as $password) {
     # code...
-    if (password_verify('2106',$value)) {
+    foreach ($emails as $email) {
         # code...
 
-        echo "ingreso correcto".$value;
+        if (password_verify('2106',$password) && "jeanbreitnermora@gmail.com"==$email) {
+            # code...
+    
+            echo "ingreso correcto".$value;
+        }
     }
+
 }
 
 // Free result set
 $stmt->close();
 $con->next_result();
-
    
