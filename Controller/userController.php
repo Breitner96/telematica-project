@@ -55,13 +55,13 @@ class User
                     $stmt->close();
                     $con->next_result();
                     return "Okinicio";
-                } else {
-                    $stmt->close();
-                    $con->next_result();
-                    return "CREDENCIALES INVALIDAS";
                 }
             }
         }
+
+        $stmt->close();
+        $con->next_result();
+        return "CREDENCIALES INVALIDAS";
     }
 
 
