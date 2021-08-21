@@ -1,0 +1,993 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html{
+
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100%;
+    position: relative;
+
+}
+
+body{
+  margin-bottom: 250px;  
+}
+
+
+header{
+
+    width: 100%;
+    height: 100px;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    /* position: relative; */
+    /* overflow: hidden; */
+    margin: 0 auto;
+    box-shadow: 1px 3px 5px #19191938;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background: white;
+    padding: 1rem;
+}
+
+
+.logo-header{
+  width: 50%;
+}
+
+main{
+
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 100px;
+  /* z-index: -1; */
+
+}
+
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.main-information{
+
+  max-width: 1440px;
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+}
+
+.main-slider{
+  max-width: 1440px;
+  /* margin-top: 2rem; */
+  /* max-height: 600px; */
+}
+
+footer{
+
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  background-color: #ccc;
+  position: absolute;
+  bottom: 0;
+  
+  
+
+}
+
+
+.responsive-img{
+
+    width: 70px;
+    height: auto;
+
+}
+
+.slide{
+  width: 100%;
+  max-height: 600px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    font-size: 36px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+
+  /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #111;
+    color: #818181;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 8px 8px 8px 32px;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 25px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel {
+    font-size: 15px;
+    background-color: #111;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    padding-left:3.2rem ;
+    color: #818181;
+  }
+
+  .accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 1rem;
+    color: #777;
+    float: right;
+    margin-top: 1rem;
+
+  }
+  
+  .active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion1 {
+    background-color: #111;
+    color: #818181;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    padding: 8px 8px 8px 32px;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    font-size: 25px;
+  }
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active1, .accordion1:hover {
+    background-color: #ccc;
+  }
+  
+  /* Style the accordion panel. Note: hidden by default */
+  .panel1 {
+    font-size: 15px;
+    background-color: #111;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    padding-left:3.2rem ;
+    color: #818181;
+  }
+
+  .accordion1:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 1rem;
+    color: #777;
+    float: right;
+    margin-top: 1rem;
+
+  }
+  
+  .active1:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+  }
+
+  /* Espacio para el slider */
+
+/* Slideshow container */
+.slideshow-container {
+  /* max-width: 1000px; */
+  position: relative;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active2, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  padding: 1rem;
+  margin: 1rem;
+  margin-top: 2rem;
+  width: 300px;
+}
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+  font-size: 1.6rem;
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Add rounded corners to the top left and the top right corner of the image */
+.card-img {
+  border-radius: 5px 5px 0 0;
+}
+.vermas {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  border-radius: 1rem;
+}
+
+.footer{
+
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  margin-top: 2rem;
+  padding: 5rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: space-around;
+  max-width: 1440px;
+  align-self: flex-end;
+
+}
+
+.footer p{
+
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.footer li{
+
+  list-style: none;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.icon-instagram{
+
+  background: url("assets/img/icon/instagram.png");
+  height: 30px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+   background-position: center;
+  /* Other styles here */
+}
+
+.icon-facebook{
+
+  background: url("assets/img/icon/facebook.png");
+  height: 30px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  /* Other styles here */
+}
+.redes-main{
+
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.redes{
+
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  width: 100%;
+  height: auto;
+
+
+}
+
+.icon-pse{
+
+  background: url("assets/img/icon/pse.png");
+  height: 50px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  /* Other styles here */
+}
+
+.icon-efectivo{
+
+  background: url("assets/img/icon/efectivo.png");
+  height: 50px;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  /* Other styles here */
+}
+
+.pagos-main{
+
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pagos{
+
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  width: 100%;
+  height: auto;
+
+}
+
+.nav-header{
+
+  width: 100%;
+  align-items: center;
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  align-content: center;
+  justify-content: right;
+  
+}
+
+.nomovil{
+  width: 100%;
+}
+.nomovil ul{
+
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  width: 100%;
+  height: auto;
+  justify-content: space-evenly;
+
+}
+
+.nomovil ul li{
+
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* padding: 1.6rem; */
+}
+
+.nomovil p{
+
+  padding: 1.6rem;
+}
+
+/* Style The Dropdown Button */
+.dropbtn {
+  /* background-color: #4CAF50; */
+  color: black;
+  /* padding: 16px; */
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none ;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  height: auto;
+  left: -11px;
+  
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-direction: column;
+  /* padding: 1.6rem; */
+}
+
+.dropdown:hover .dropdown1, .dropdown2{
+
+  padding: 1.6rem;
+}
+
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  /* background-color: #ccc; */
+  transition: transform 1s; /* Animation */
+  transform: scale(1.2);
+}
+/* Style The Dropdown Button */
+.dropbtn {
+  /* background-color: #4CAF50; */
+  color: black;
+  /* padding: 16px; */
+  font-size: 1.6rem;
+  border: none;
+  cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content1 {
+  display: none ;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  height: auto;
+  left: 160px;
+  top: 0px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content1 a {
+  color: black;
+  /* padding: 12px 16px; */
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content1 a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown1:hover .dropdown-content1 {
+  display: block;
+}
+
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown1:hover .dropbtn1 {
+  background-color: #ccc;
+} */
+/* The container <div> - needed to position the dropdown content */
+.dropdown2 {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content2 {
+  display: none ;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 100;
+  height: auto;
+  left: 160px;
+  top: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content2 a {
+  color: black;
+  /* padding: 12px 16px; */
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content2 a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu on hover */
+.dropdown2:hover .dropdown-content2 {
+  display: block;
+}
+
+.nomovil ul li .animation:hover{
+
+  /* background-color: #ccc; */
+  transition: transform 1s; /* Animation */
+  transform: scale(1.2);
+
+}
+
+.Quienesomos{
+
+  width: 100%;
+  height: auto;
+  display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;  /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  max-width: 1440px;
+  padding: 2rem;
+  gap: 2rem;
+  justify-content: space-around;
+
+
+}
+
+.info{
+  order: 2;
+}
+
+.img-doc{
+
+  order: 1;
+}
+
+
+.img-info{
+  width: 100%;
+
+}
+
+.info h2{
+  
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+}
+
+.info article {
+
+  font-size: 1.6rem;
+  font-weight: 300;
+  text-align: justify;
+  max-width: 630px;
+}
+
+
+.login-register{
+
+  max-width: 1440px;
+  height: auto;
+  /* margin-top: 1rem; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: center;
+  /* max-width: 500px; */
+  
+}
+
+.loginuser{
+
+  /* margin-top: 3rem; */
+  width: 500px;
+  padding: 2rem;
+
+}
+
+.loginuser > h2{
+
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 1rem;
+}
+.register{
+
+  /* width: 50%; */
+  /* margin-top: 5rem; */
+  width: 500px;
+  padding: 2rem;
+
+}
+
+.register > h2{
+
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Full-width inputs */
+input[type=text], input[type=password]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+input[type=number]{
+
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+
+}
+
+
+/* Set a style for all buttons */
+button {
+  background-color: black;
+  color: white;
+  font-weight: 900;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.6rem;
+}
+
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+
+/* Add padding to containers */
+.container1{
+  padding: 16px;
+}
+
+.error{
+
+  /* align-self: center; */
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.5rem;
+  background-color: #E74C3C ;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  color: white;
+  border-radius: 1rem;
+  font-weight:700;
+  display: none;
+}
+
+.iniciar{
+
+  /* align-self: center; */
+  text-align: center;
+  font-size: 1rem;
+  padding: 1.5rem;
+  background-color: #E74C3C ;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  color: white;
+  border-radius: 1rem;
+  font-weight:700;
+  display: none;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+}
+
+@media screen and (max-width: 372px) {
+  footer{
+    
+    position: relative;
+    /* bottom: 0; */
+    /* padding: 5rem; */
+
+  }
+
+  body{
+
+    margin-bottom: 0px;
+  }
+  
+}
+
+@media screen and (min-width: 372px) and (max-width: 550px){
+  body{
+    
+    margin-bottom: 350px;
+
+  }
+  
+}
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (min-width: 450px) {
+
+    .card{
+
+      width: 500px;
+    }
+
+  }
+
+  @media screen and (min-width: 768px) {
+    .movil-only{
+      display: none;
+    }
+
+    .card{
+
+      width: 350px;
+    }
+
+    .info{
+      width: 50%;
+      align-self: center;
+      max-width: 500px;
+    }
+    .img-doc{
+      width: 50%;
+    }
+
+    .Quienesomos{
+
+      flex-wrap: nowrap;
+    }
+
+    .info h2{
+  
+      font-size: 2rem;
+
+    }
+
+    .info article{
+
+      font-size: 1.6rem;
+    }
+    
+  }
+  @media screen and (min-width: 768px) and (max-width: 902px){
+    .nomovil ul li, .nomovil ul li .dropdown p{
+      font-size: 1.25rem;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .nomovil{
+      display: none;
+    }
+    
+  }
+
+  @media screen and (min-width: 1043px) {
+
+    .card{
+
+      width: 400px;
+    }
+
+  }
+  
