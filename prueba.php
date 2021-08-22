@@ -2,6 +2,9 @@
 
 // Ejemplo practico Inicio Sesion
 
+include_once("verificarSession.php");
+// session_start();
+
 header("Content-Type: application/json");
 include_once("Controller/userController.php");
 
@@ -15,6 +18,8 @@ while($data=$stmt->fetch_assoc()){
 
     $passwords[]=$data['password'];
     $emails[]=$data['email'];
+    $ID_users[]=$data['id_usuario'];
+    $names[]=$data['name'];
 
 }
 
@@ -25,17 +30,24 @@ print_r($emails);
 
 foreach ($passwords as $password) {
     # code...
-    foreach ($emails as $email) {
+    foreach ($emails as $key => $email) {
         # code...
 
-        if (password_verify('2106',$password) && "jeanbreitnermora@gmail.com"==$email) {
+        if (password_verify('2106',$password) && "paula.ospina@gmail.com"==$email) {
             # code...
-    
-            echo "ingreso correcto".$value;
+            setcookie("Token",$password,time()+(60*60));
+            setcookie("id_usuario",$ID_users[$key],time()+(60*60));
+            setcookie("name",$names[$key],time()+(60*60));
+            echo "ingreso correcto";
+
+            $resp = array("Okinicio",$password);
         }
     }
 
 }
+
+print_r($resp[0]);
+
 
 // Free result set
 $stmt->close();

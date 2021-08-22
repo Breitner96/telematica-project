@@ -22,8 +22,6 @@ header {
   display: -ms-flexbox; /* TWEENER - IE 10 */
   display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
   display: flex; /* NEW, Spec - Firefox, Chrome, Opera */
-  /* position: relative; */
-  /* overflow: hidden; */
   margin: 0 auto;
   box-shadow: 1px 3px 5px #19191938;
   position: fixed;
@@ -105,10 +103,21 @@ footer {
 .sidebar a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 2.5rem;
   color: #818181;
   display: block;
   transition: 0.3s;
+}
+
+.sidebar p{
+
+  padding: 15px 8px 15px 32px;
+  text-decoration: none;
+  font-size: 2rem;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+  background-color: #ccc;
 }
 
 .sidebar a:hover {
@@ -516,6 +525,7 @@ footer {
   width: 100%;
   height: auto;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .nomovil ul li {
@@ -523,9 +533,23 @@ footer {
   cursor: pointer;
   /* padding: 1.6rem; */
 }
+.nomovil ul li .usuarioname1{
+  
+  cursor: default;
+  
+}
 
 .nomovil p {
   padding: 1.6rem;
+}
+
+.nomovil li.user1{
+
+  padding: 1.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
 }
 
 /* Style The Dropdown Button */

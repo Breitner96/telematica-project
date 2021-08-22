@@ -1,3 +1,6 @@
+<?php
+    include_once("verificarSession.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,7 +68,7 @@
                             shopping_cart
                         </span></a>
                     <a class="login" href="login-register.php">Login/Registro</a>
-                    <a class="usermovil" href="logout.php">Cerrar Sesion</a>
+                    <a class="user" href="logout.php">Cerrar Sesion</a>
 
                 </div>
 
@@ -107,192 +110,41 @@
                             </div>
                         </div>
                     </li>
-                    <li>
-                        <a href="pedidos.php">
+                    <li><a href="pedidos.php">
                             <p class="animation">Mis pedidos</p>
-                        </a>
-                    </li>
-                    <li>
-
-                        <a href="#">
+                        </a></li>
+                    <li><a href="#">
                             <p class="animation"><span class="material-icons-outlined md-36">
                                     shopping_cart
                                 </span></p>
-                        </a>
-                    </li>
+                        </a></li>
 
+   
                     <li class="login1">
                         <a href="login-register.php">
                             <p class="animation">Login/Resgistro</p>
                         </a>
-
+                    
                     </li>
 
                     <li class="user1">
                         <span class="usuarioname1"></span>
                         <a href="logout.php">
-                            <span class="material-icons-outlined md-36">
-                                logout
-                            </span>
+                                 <span class="material-icons-outlined md-36">
+                                    logout
+                                </span>
                         </a>
-
+                    
                     </li>
-
-                </ul>
             </div>
 
         </nav>
 
+
+
     </header>
 
     <main>
-
-        <section class="main-slider">
-            <!-- Slideshow container -->
-            <div class="slideshow-container">
-
-                <!-- Full-width images with number and caption text -->
-                <div class="mySlides fade">
-                    <div class="numbertext">1 / 3</div>
-
-                    <!-- <img src="assets/img/slider/zapatos.jpg" style="width:100%"> -->
-                    <picture>
-
-                        <source media="(min-width:1000px)" srcset="assets/img/slider/med/zapatos-med.jpg" class="slide">
-                        <img src="assets/img/slider/zapatos.jpg" class="slide" alt="Ropa">
-
-
-                    </picture>
-
-                    <div class="text">ZAPATOS</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">2 / 3</div>
-                    <!-- <img src="assets/img/slider/ropa.jpg" style="width:100%"> -->
-                    <picture>
-
-                        <source media="(min-width:1000px)" srcset="assets/img/slider/med/ropa-med.jpg" class="slide">
-                        <img src="assets/img/slider/ropa.jpg" class="slide" alt="Ropa">
-
-
-                    </picture>
-                    <div class="text">CAMISAS</div>
-                </div>
-
-                <div class="mySlides fade">
-                    <div class="numbertext">3 / 3</div>
-                    <!-- <img src="assets/img/slider/pantalones.jpg" style="width:100%"> -->
-                    <picture>
-
-                        <source media="(min-width:1000px)" srcset="assets/img/slider/med/pantalones-med.jpg" class="slide">
-                        <img src="assets/img/slider/pantalones.jpg" class="slide" alt="Ropa">
-
-
-                    </picture>
-                    <div class="text">PANTALONES</div>
-                </div>
-
-                <!-- Next and previous buttons -->
-                <!-- <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a> -->
-            </div>
-            <br>
-
-            <!-- The dots/circles -->
-            <div style="text-align:center">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
-        </section>
-
-        <section class="Quienesomos">
-
-            <div class="info">
-
-                <h2>¿Quiénes somos?</h2>
-
-                <article>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad a ratione similique culpa fugiat quia, quisquam at corporis error aliquam ipsum iusto? Placeat provident doloribus cupiditate id quod perferendis magni.
-                    Reprehenderit corrupti nisi dolore ullam veritatis amet officia, aperiam repellendus tempore, sit enim molestiae possimus velit error, nam unde atque quod? Exercitationem numquam veritatis ea? Nemo reiciendis ipsam eaque odio.
-                </article>
-
-            </div>
-
-            <div class="img-doc">
-                <img src="assets/img/somos/quienessomos.jpg" class="img-info" alt="Quines somos">
-
-            </div>
-
-
-
-
-        </section>
-
-        <section class="main-information">
-
-            <div class="card">
-                <img class="card-img" src="assets/img/slider/pantalones.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                    <p><button class="vermas">Ver mas</button></p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="assets/img/slider/ropa.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                    <p><button class="vermas">Ver mas</button></p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="assets/img/slider/zapatos.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                    <p><button class="vermas">Ver mas</button></p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="assets/img/slider/pantalones.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                    <p><button class="vermas">Ver mas</button></p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="assets/img/slider/ropa.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                    <p><button class="vermas">Ver mas</button></p>
-                </div>
-
-            </div>
-
-            <div class="card">
-                <img class="card-img" src="assets/img/slider/zapatos.jpg" alt="Avatar" style="width:100%">
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                    <p><button class="vermas">Ver mas</button></p>
-                </div>
-
-            </div>
-
-        </section>
 
 
     </main>
@@ -340,10 +192,10 @@
 
 
     </footer>
-
-    <script src="app.js"></script>
-    <script src="login-registerController.js"></script>
+    <script src="/app.js"></script>
+    <script src="/login-registerController.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </body>
 
 </html>

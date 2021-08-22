@@ -21,7 +21,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 "mensaje" => "Correcto inicio de sesion",
 
             );
-            echo json_encode($resultado);
+            echo json_encode($resultado);   
         } else {
 
             $resultado = array(
