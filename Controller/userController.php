@@ -1,7 +1,5 @@
 <?php
 
-// include('../conect.php');
-
 class User
 {
 
@@ -24,13 +22,10 @@ class User
 
     public static function verificarUsuario($emailuser, $token)
     {
-
+        
         $con = self::conexionMysql();
-
         //Ejemplo traer datos desde base de datos
         $query = "select * from users";
-
-
 
         $stmt = mysqli_query($con, $query);
 
@@ -38,6 +33,8 @@ class User
 
             $passwords[] = $data['password'];
             $emails[] = $data['email'];
+            $ID_users[]=$data['id_usuario'];
+            $names[]=$data['name'];
         }
 
 
@@ -47,18 +44,29 @@ class User
 
         foreach ($passwords as $password) {
             # code...
-            foreach ($emails as $email) {
+            foreach ($emails as $key => $email) {
                 # code...
-
+                // foreach ($variable as $key => $value) {
+                //     # code...
+                // }
                 if (password_verify($token, $password) && $emailuser == $email) {
                     # code...
+
+                    setcookie("Token",$password,time()+(60*60),"/");
+                    setcookie("id_usuario",$ID_users[$key],time()+(60*60),"/");
+                    setcookie("name",$names[$key],time()+(60*60),"/");
+
                     $stmt->close();
                     $con->next_result();
+
                     return "Okinicio";
                 }
             }
         }
 
+        setcookie("Token","",time()-1,"/");
+        setcookie("id_usuario","",time()-1,"/");
+        setcookie("name","",time()-1,"/");
         $stmt->close();
         $con->next_result();
         return "CREDENCIALES INVALIDAS";

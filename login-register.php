@@ -58,7 +58,7 @@
                             <a href="#">Pantalones</a>
                         </div>
                     </div>
-                    <a href="#">Mis pedidos</a>
+                    <a href="pedidos.php">Mis pedidos</a>
                     <a href="#"><span class="material-icons-outlined">
                             shopping_cart
                         </span></a>
@@ -104,7 +104,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">
+                    <li><a href="pedidos.php">
                             <p class="animation">Mis pedidos</p>
                         </a></li>
                     <li><a href="#">

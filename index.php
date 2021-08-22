@@ -41,6 +41,8 @@
 
                 <div id="mySidebar" class="sidebar">
                     <a href="javascript:void(0)" class="closebtn " onclick="closeNav()">×</a>
+
+                    <p class="usuarioname user"></p>
                     <a href="index.php">Inicio</a>
                     <button class="accordion">Categorias</button>
                     <div class="panel">
@@ -58,11 +60,12 @@
                             <a href="#">Pantalones</a>
                         </div>
                     </div>
-                    <a href="#">Mis pedidos</a>
+                    <a href="pedidos.php">Mis pedidos</a>
                     <a href="#"><span class="material-icons-outlined">
                             shopping_cart
                         </span></a>
-                    <a href="login-register.php">Login/Registro</a>
+                    <a class="login" href="login-register.php">Login/Registro</a>
+                    <a class="usermovil" href="logout.php">Cerrar Sesion</a>
 
                 </div>
 
@@ -104,17 +107,37 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="#">
+                    <li>
+                        <a href="pedidos.php">
                             <p class="animation">Mis pedidos</p>
-                        </a></li>
-                    <li><a href="#">
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="#">
                             <p class="animation"><span class="material-icons-outlined md-36">
                                     shopping_cart
                                 </span></p>
-                        </a></li>
-                    <li class="login"><a href="login-register.php">
+                        </a>
+                    </li>
+
+                    <li class="login1">
+                        <a href="login-register.php">
                             <p class="animation">Login/Resgistro</p>
-                        </a></li>
+                        </a>
+
+                    </li>
+
+                    <li class="user1">
+                        <span class="usuarioname1"></span>
+                        <a href="logout.php">
+                            <span class="material-icons-outlined md-36">
+                                logout
+                            </span>
+                        </a>
+
+                    </li>
+
                 </ul>
             </div>
 
@@ -318,8 +341,9 @@
 
     </footer>
 
+    <script src="app.js"></script>
+    <script src="login-registerController.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="/app.js"></script>
 </body>
 
 </html>
