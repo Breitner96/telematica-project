@@ -2,7 +2,7 @@
 
 // Ejemplo practico Inicio Sesion
 
-include_once("verificarSession.php");
+// include_once("verificarSession.php");
 // session_start();
 
 header("Content-Type: application/json");
@@ -14,12 +14,18 @@ $query = "select * from users";
 
 $stmt=mysqli_query($con,$query);
 
+
+
 while($data=$stmt->fetch_assoc()){
 
     $passwords[]=$data['password'];
     $emails[]=$data['email'];
     $ID_users[]=$data['id_usuario'];
     $names[]=$data['name'];
+
+    // print_r($data);
+
+    $users[]=$data;
 
 }
 
@@ -28,28 +34,38 @@ print_r($passwords);
 print_r($emails);
 
 
-foreach ($passwords as $password) {
-    # code...
-    foreach ($emails as $key => $email) {
-        # code...
+// foreach ($passwords as $password) {
+//     # code...
+//     foreach ($emails as $key => $email) {
+//         # code...
 
-        if (password_verify('2106',$password) && "paula.ospina@gmail.com"==$email) {
-            # code...
-            setcookie("Token",$password,time()+(60*60));
-            setcookie("id_usuario",$ID_users[$key],time()+(60*60));
-            setcookie("name",$names[$key],time()+(60*60));
-            echo "ingreso correcto";
+//         if (password_verify('2106',$password) && "paula.ospina@gmail.com"==$email) {
+//             # code...
+//             setcookie("Token",$password,time()+(60*60));
+//             setcookie("id_usuario",$ID_users[$key],time()+(60*60));
+//             setcookie("name",$names[$key],time()+(60*60));
+//             echo "ingreso correcto";
 
-            $resp = array("Okinicio",$password);
-        }
-    }
+//             $resp = array("Okinicio",$password);
+//         }
+//     }
 
-}
+// }
 
-print_r($resp[0]);
+
+$users=json_encode($users);
+
+
+
+print_r($users);
 
 
 // Free result set
 $stmt->close();
 $con->next_result();
+
+
+
+
+
    
