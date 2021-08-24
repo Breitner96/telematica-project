@@ -102,6 +102,26 @@
               </li>
 
             </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="productos.php" class="nav-link">
+                  <i class="nav-icon fas fa-bullhorn"></i>
+                  <p>Productos</p>
+                </a>
+              </li>
+
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="productos.php" class="nav-link">
+                  <i class="nav-icon fas fa-paper-plane"></i>
+                  <p>Pedidos</p>
+                </a>
+              </li>
+            </ul>
+
           </li>
         </ul>
       </nav>
@@ -113,11 +133,27 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
+    <div class="content-header">
+
+    </div>
         <div class="content">
+        <a type="button" class="btn btn-dark mb-2" href="addprenda.php"><i class="far fa-plus-square"> Registrar genero</i></a>
             <div class="container-fluid">
                 <div class="row">
-            
 
+                <table class="table">
+                    <thead class="thead-dark text-center">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Componentes</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody class="text-center" id="res">
+
+                    </tbody>
+                  </table>
 
                 </div>
                 <!-- /.row -->
@@ -159,6 +195,9 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard3.js"></script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="dist/js/pages/generos.js"></script>
+
 </body>
 </html>

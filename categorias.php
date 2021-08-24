@@ -102,6 +102,26 @@
               </li>
 
             </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="productos.php" class="nav-link">
+                  <i class="nav-icon fas fa-bullhorn"></i>
+                  <p>Productos</p>
+                </a>
+              </li>
+
+            </ul>
+
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="productos.php" class="nav-link">
+                  <i class="nav-icon fas fa-paper-plane"></i>
+                  <p>Pedidos</p>
+                </a>
+              </li>
+            </ul>
+
           </li>
         </ul>
       </nav>
@@ -159,6 +179,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard3.js"></script>
+
 </body>
 </html>

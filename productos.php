@@ -121,7 +121,7 @@
                 </a>
               </li>
             </ul>
-
+            
           </li>
         </ul>
       </nav>
@@ -131,30 +131,13 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper ">
+  <div class="content-wrapper">
     <!-- Main content -->
-
-    <div class="content-header">
-
-    </div>
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
             
-                  <table class="table">
-                    <thead class="thead-dark text-center">
-                      <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Componentes</th>
-                        
-                      </tr>
-                    </thead>
-                    <tbody class="text-center" id="res">
 
-                    </tbody>
-                  </table>
 
                 </div>
                 <!-- /.row -->
@@ -197,7 +180,5 @@
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="dist/js/pages/users.js"></script>
 </body>
 </html>
