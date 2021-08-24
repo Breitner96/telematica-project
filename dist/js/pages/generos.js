@@ -8,12 +8,12 @@ $(function () {
   
   
   // console.log(anuncioParam);
-  
+  let formulariogenero = document.getElementById("registerprenda");
   
   
   Listprendas();
   
-  showUser(anuncioParam);
+  // showUser(anuncioParam);
   
   function Listprendas(){
   
@@ -50,6 +50,43 @@ $(function () {
           });
   
   }
+
+  formulariogenero.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let datosaarray = {};
+    let datos = new FormData(formulariogenero);
+    datos.forEach((value, key) => {
+      datosaarray[key] = value;
+    });
+
+    // console.log(datos.get('email'));
+    // console.log(datos.get('password'));
+
+    console.log(datos);
+    console.log(datosaarray);
+
+    axios({
+      url: "../../../models/generosModel.php",
+      method: "post",
+      responseType: "json",
+      data: JSON.stringify(datosaarray),
+    })
+      .then((res) => {
+        if (res.data.codigoResultado == 1) {
+
+          formulariogenero.reset();
+        } else {
+
+          formulariogenero.reset();
+          
+        }
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  });
       
 });
   
