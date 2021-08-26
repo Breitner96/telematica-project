@@ -153,14 +153,25 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <form id="registerprenda">
-                                <div class="form-group">
-                                    <label for="nameprenda">Nombre</label>
-                                    <input type="text" class="form-control" id="nameprenda" aria-describedby="emailHelp" autocomplete="name" name="name" required>
-                                    <small id="emailHelp" class="form-text text-muted">Debe escribir un genero de prenda</small>
+                            <form id="registergenerotoCategory">
+                                <label for="selectgeneros">Generos</label>
+                                <select class="custom-select" id="selectgeneros">
+
+                                </select>
+                                <label class="mt-3">Categorias</label>
+                                <div class="form-group" id="selectcategory">
+
+
+
+                                    <!-- <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="test" value="${item.id_categoria}">
+                                        <label class="form-check-label" for="test">Uno</label>
+                                    </div> -->
+
+
                                 </div>
                                 <button type="submit" class="btn btn-dark">Registrar</button>
-                                <a type="submit" class="btn btn-danger ml-3" href="generos.php">Regresar</a>
+                                <a type="submit" class="btn btn-danger ml-3" href="generotoCategories.php">Regresar</a>
                             </form>
                         </div>
                     </div>
@@ -206,7 +217,14 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="dist/js/pages/generos.js"></script>
+    <script src="dist/js/pages/generotoCategory.js"></script>
+    <script src="dist/js/pages/generotocategoryController.js"></script>
+    <!-- <script>
+        window.onload=function(){
+
+        };
+    </script> -->
+
 
 </body>
 

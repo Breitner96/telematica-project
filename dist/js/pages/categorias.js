@@ -8,14 +8,14 @@ $(function () {
   
   
   // console.log(anuncioParam);
-  let formulariogenero = document.getElementById("registerprenda");
-  Listprendas();
+  let formulariocategoria = document.getElementById("registercategory");
+  ListCategories();
 
   // showUser(anuncioParam);
   
-  function Listprendas(){
+  function ListCategories(){
     axios({
-        url: "../../../models/generosModel.php",
+        url: "../../../models/categoryModel.php",
         method: "get",
         responseType: "json",
       })
@@ -30,9 +30,9 @@ $(function () {
     
                 resp.innerHTML+=`
                 <tr>
-                    <td>${item.id_genero}</td>
+                    <td>${item.id_categoria}</td>
                     <td>${item.name}</td> 
-                    <td class="d-flex justify-content-center"><a type="button" class="btn btn-dark mr-3" href="generosedit.php?id_genero=${item.id_genero}&name=${item.name}"><i class="fas fa-edit"></i></a><a type="button" class="btn btn-danger" onclick="deletegenero(${item.id_genero})"><i class="fas fa-trash-alt"></i></a></td>    
+                    <td class="d-flex justify-content-center"><a type="button" class="btn btn-dark mr-3" href="categoryedit.php?id_categoria=${item.id_categoria}&name=${item.name}"><i class="fas fa-edit"></i></a><a type="button" class="btn btn-danger" onclick="deletecategory(${item.id_categoria})"><i class="fas fa-trash-alt"></i></a></td>    
     
                 </tr>
                 `
@@ -49,11 +49,11 @@ $(function () {
   
   }
 
-  formulariogenero.addEventListener("submit", function (e) {
+  formulariocategoria.addEventListener("submit", function (e) {
     e.preventDefault();
 
     let datosaarray = {};
-    let datos = new FormData(formulariogenero);
+    let datos = new FormData(formulariocategoria);
     datos.forEach((value, key) => {
       datosaarray[key] = value;
     });
@@ -65,7 +65,7 @@ $(function () {
     console.log(datosaarray);
 
     axios({
-      url: "../../../models/generosModel.php",
+      url: "../../../models/categoryModel.php",
       method: "post",
       responseType: "json",
       data: JSON.stringify(datosaarray),
@@ -79,12 +79,12 @@ $(function () {
             timer: 1500
           }).then((resp)=>{
 
-            window.location.href = "generos.php";
+            window.location.href = "categorias.php";
 
           });
 
           
-          formulariogenero.reset();
+          formulariocategoria.reset();
         } else {
           Swal.fire({
             icon: 'error',
@@ -92,7 +92,7 @@ $(function () {
             showConfirmButton: false,
             timer: 1500
           })
-          formulariogenero.reset();
+          formulariocategoria.reset();
           
         }
         console.log(res);

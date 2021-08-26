@@ -26,16 +26,38 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((res) => {
         if (res.data.codigoResultado == 1) {
-          changedom1.style.display = "none";
-          formulariologin.reset();
-          window.location.href = "index.php";
+
+          Swal.fire({
+            icon: 'success',
+            title: res.data.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          }).then((resp)=>{
+
+            changedom1.style.display = "none";
+            formulariologin.reset();
+            window.location.href = "index.php";
+
+          })
+
+
         } else {
-          if (res.data.mensaje != null) {
+
+          Swal.fire({
+            icon: 'error',
+            title: res.data.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          }).then((resp)=>{
+
             changedom1.style.display = "block";
             changedom1.style.backgroundColor = "#E74C3C";
             changedom1.innerHTML = res.data.mensaje;
             formulariologin.reset();
-          }
+            
+          })  
+
+        
         }
         console.log(res);
       })
@@ -67,19 +89,37 @@ document.addEventListener("DOMContentLoaded", function () {
     })
       .then((res) => {
         if (res.data.codigoResultado == 1) {
-          changedom.style.display = "block";
-          changedom.style.backgroundColor = "#2ECC71";
-          changedom.innerHTML = res.data.mensaje;
-          formularioregister.reset();
-        } else {
-          if (res.data.mensaje != null) {
+
+          Swal.fire({
+            icon: 'success',
+            title: res.data.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          }).then((resp)=>{
+
             changedom.style.display = "block";
-            changedom.style.backgroundColor = "#E74C3C";
+            changedom.style.backgroundColor = "#2ECC71";
             changedom.innerHTML = res.data.mensaje;
             formularioregister.reset();
 
-            // console.log(res.data.mensaje);
-          }
+          })
+
+        } 
+        else {
+          Swal.fire({
+            icon: 'error',
+            title: res.data.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          }).then((resp)=>{
+
+            changedom.style.display = "block";
+            changedom.style.backgroundColor = "#E74C3C";
+            changedom.innerHTML = res.data.mensaje;
+  
+            formularioregister.reset();
+            
+          })          
         }
         console.log(res);
       })

@@ -144,12 +144,24 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Main content -->
+      <div class="content-header">
+
+      </div>
       <div class="content">
+
         <div class="container-fluid">
-          <div class="row">
-
-
-
+          <div class="row justify-content-center align-items-center">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+              <form id="registerprenda">
+                <div class="form-group">
+                  <label for="nameprenda">Nombre</label>
+                  <input type="text" class="form-control" id="nameprenda" aria-describedby="emailHelp" autocomplete="name" name="name" required>
+                  <small id="emailHelp" class="form-text text-muted">Debe escribir un genero de prenda</small>
+                </div>
+                <button type="submit" class="btn btn-dark">Editar</button>
+                <a type="submit" class="btn btn-danger ml-3" href="generos.php">Regresar</a>
+              </form>
+            </div>
           </div>
           <!-- /.row -->
         </div>
@@ -190,6 +202,10 @@
   <!-- AdminLTE for demo purposes -->
   <script src="dist/js/demo.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="dist/js/pages/generosedit.js"></script>
 
 </body>
 

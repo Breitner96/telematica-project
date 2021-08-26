@@ -15,18 +15,18 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $con=User::conexionMysql();
 
 
-        $query = "select * from generos";
+        $query = "select * from categorias";
 
         $stmt = mysqli_query($con, $query);
 
         while ($data = $stmt->fetch_assoc()) {
 
-            $generos[]=$data;
+            $categorias[]=$data;
         }
 
-        $generos=json_encode($generos);
+        $categorias=json_encode($categorias);
 
-        echo $generos;
+        echo $categorias;
 
 
         break;
@@ -38,13 +38,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $name = $_POST['name'];
 
 
-        $query = "insert into generos (name) values ('$name')";
+        $query = "insert into categorias (name) values ('$name')";
 
         if (mysqli_query($con, $query)) {
             $resultado = array(
 
                 "codigoResultado" => 1,
-                "mensaje" => "Genero Creado Correctamente",
+                "mensaje" => "Categoria Creada Correctamente",
 
             );
             $con->close();
@@ -76,10 +76,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $con=User::conexionMysql();
 
-        $id_genero = $_DELETE['id_genero'];
-         
-        $query = "delete from generos where id_genero='$id_genero'";
-
+        $id_categoria = $_DELETE['id_categoria'];
+            
+        $query = "delete from categorias where id_categoria='$id_categoria'";
+        
         if (mysqli_query($con, $query)) {
             $resultado = array(
 
@@ -108,21 +108,21 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $con=User::conexionMysql();
 
         $name = $_UPDATE['name'];
-        $id_genero = $_UPDATE['id_genero'];
-
+        $id_categoria = $_UPDATE['id_categoria'];
+        
         // $resultado=array(
-        //     "valorid"=>$id_genero,
+        //     "valorid"=>$id_categoria,
         //     "name"=>$name
 
         // );
 
-        $query = "update generos set name='$name' where id_genero='$id_genero'";
-
+        $query = "update categorias set name='$name' where id_categoria='$id_categoria'";
+            
         if (mysqli_query($con, $query)) {
             $resultado = array(
 
                 "codigoResultado" => 1,
-                "mensaje" => "Genero Editado Correctamente",
+                "mensaje" => "Categoria Editada Correctamente",
 
             );
             $con->close();

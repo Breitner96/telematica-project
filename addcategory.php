@@ -153,14 +153,14 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <form id="registerprenda">
+                            <form id="registercategory">
                                 <div class="form-group">
-                                    <label for="nameprenda">Nombre</label>
-                                    <input type="text" class="form-control" id="nameprenda" aria-describedby="emailHelp" autocomplete="name" name="name" required>
-                                    <small id="emailHelp" class="form-text text-muted">Debe escribir un genero de prenda</small>
+                                    <label for="namecategory">Nombre</label>
+                                    <input type="text" class="form-control" id="namecategory" aria-describedby="categoryhelp" autocomplete="name" name="name" required>
+                                    <small id="categoryhelp" class="form-text text-muted">Debe escribir una categoria</small>
                                 </div>
                                 <button type="submit" class="btn btn-dark">Registrar</button>
-                                <a type="submit" class="btn btn-danger ml-3" href="generos.php">Regresar</a>
+                                <a type="submit" class="btn btn-danger ml-3" href="categorias.php">Regresar</a>
                             </form>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="dist/js/pages/generos.js"></script>
+    <script src="dist/js/pages/categorias.js"></script>
 
 </body>
 

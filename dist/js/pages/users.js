@@ -10,7 +10,6 @@ let anuncioParam = urlParams.get('id_usuario');
 // console.log(anuncioParam);
 
 
-
 ListUsers();
 
 showUser(anuncioParam);
@@ -35,7 +34,7 @@ function ListUsers(){
                 <tr>
                     <td>${item.id_usuario}</td>
                     <td>${item.name}</td> 
-                    <td>${item.email}</td>
+                    <td>${item.phone}</td>
                     <td><a type="button" class="btn btn-dark" href="usuarios.php?id_usuario=${item.id_usuario}"><i class="far fa-address-card"></i></a></td>    
     
                 </tr>

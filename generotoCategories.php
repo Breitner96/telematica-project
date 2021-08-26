@@ -140,15 +140,31 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper ">
     <!-- Main content -->
+
     <div class="content-header">
 
     </div>
         <div class="content">
-            <div class="container-fluid ">
-                <div class="row justify-content-center align-items-center" id="users">
+        <a type="button" class="btn btn-dark btn-lg mb-2" href="addgenerotoCategories.php"><i class="far fa-plus-square"> Registrar Relaciones</i></a>
+            <div class="container-fluid">
+                <div class="row">
             
+                  <table class="table">
+                    <thead class="thead-dark text-center">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Componentes</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody class="text-center" id="res">
+
+                    </tbody>
+                  </table>
 
                 </div>
                 <!-- /.row -->
@@ -190,8 +206,7 @@
 <!-- AdminLTE for demo purposes -->
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="dist/js/pages/users.js"></script>
 
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>

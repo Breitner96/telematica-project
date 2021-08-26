@@ -52,9 +52,9 @@ class User
                 if (password_verify($token, $password) && $emailuser == $email) {
                     # code...
 
-                    setcookie("Token",$password,time()+(60*60),"/");
-                    setcookie("id_usuario",$ID_users[$key],time()+(60*60),"/");
-                    setcookie("name",$names[$key],time()+(60*60),"/");
+                    setcookie("Token",$password,time()+(60*60*8),"/");
+                    setcookie("id_usuario",$ID_users[$key],time()+(60*60*8),"/");
+                    setcookie("name",$names[$key],time()+(60*60*8),"/");
 
                     $stmt->close();
                     $con->next_result();
