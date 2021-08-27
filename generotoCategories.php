@@ -154,9 +154,8 @@
                   <table class="table">
                     <thead class="thead-dark text-center">
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Telefono</th>
+                        <th scope="col">Nombre Genero</th>
+                        <th scope="col">Categorias</th>
                         <th scope="col">Componentes</th>
                         
                       </tr>
@@ -207,6 +206,9 @@
 <script src="dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="dist/js/pages/generotoCategory.js"></script>
+<script src="dist/js/pages/generotocategoryController.js"></script>
 </body>
 </html>

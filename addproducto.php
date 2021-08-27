@@ -14,8 +14,6 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="dist/js/pages/generotoCategory.js"></script>
 </head>
 <!--
 `body` tag options:
@@ -155,17 +153,51 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <form id="registergenerotoCategory">
-                                <label for="selectgeneros">Generos</label>
-                                <select class="custom-select" id="selectgeneros">
+                            <form id="registrarproducto" class="mb-3">
+                                <div class="form-group">
+                                    <label for="nameprenda">Nombre</label>
+                                    <input type="text" class="form-control" id="nameprenda" aria-describedby="namehelp" autocomplete="name" name="name" required>
+                                    <small id="namehelp" class="form-text text-muted">Debe escribir un nombre del producto</small>
+                                </div>
 
-                                </select>
-                                <label class="mt-3">Categorias</label>
-                                <div class="form-group" id="selectcategory">
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input type="number" class="form-control" id="precio" aria-describedby="preciohelp" autocomplete="number" name="precio" required>
+                                    <small id="preciohelp" class="form-text text-muted">Debe escribir un precio para el producto</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="talla">Talla</label>
+                                    <input type="text" class="form-control" id="talla" aria-describedby="tallahelp" autocomplete="name" name="talla" required>
+                                    <small id="tallahelp" class="form-text text-muted">Debe escribir una talla para el producto</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad</label>
+                                    <input type="number" class="form-control" id="cantidad" aria-describedby="cantidadhelp" autocomplete="number" name="cantidad" required>
+                                    <small id="cantidadhelp" class="form-text text-muted">Debe escribir una cantidad para el producto</small>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" name="imagen">
+                                        <label class="custom-file-label" for="customFile" id="text">Elige una imagen para tu producto</label>
+                                    </div>
 
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="selectgeneros">Categoria</label>
+                                    <select class="custom-select" id="seleccategoria" aria-describedby="categoriahelp">
+
+                                    </select>
+                                    <small id="categoriahelp" class="form-text text-muted">Indique la categoria a la que pertenece su producto</small>
+
+                                </div>
+
                                 <button type="submit" class="btn btn-dark">Registrar</button>
-                                <a type="submit" class="btn btn-danger ml-3" href="generotoCategories.php">Regresar</a>
+                                <a type="submit" class="btn btn-danger ml-3" href="productos.php">Regresar</a>
                             </form>
                         </div>
                     </div>
@@ -210,14 +242,9 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="dist/js/pages/generotocategoryController.js"></script>
-    <!-- <script>
-        window.onload=function(){
-
-        };
-    </script> -->
-
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="dist/js/pages/productos.js"></script>
+    <script src="dist/js/pages/editproducto.js"></script>
 
 </body>
 
