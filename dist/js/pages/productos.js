@@ -47,7 +47,7 @@ function Listproductos() {
                 <td>${item.id_producto}</td>
                 <td>${item.name}</td>
                 <td>${item.precio}</td>
-                <td>${item.categoria}</td>  
+                <td><img src="data:image/jgp;" alt="12345"></td>  
                 <td class="d-flex justify-content-center"><a type="button" class="btn btn-danger" onclick="deletegenerotoCategoria(${item.id_categoria},${item.id_genero})"><i class="fas fa-trash-alt"></i></a></td>    
 
             </tr>

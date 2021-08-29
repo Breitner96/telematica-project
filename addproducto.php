@@ -153,7 +153,7 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <form id="registrarproducto" class="mb-3">
+                            <form id="registrarproducto" class="mb-3" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="nameprenda">Nombre</label>
                                     <input type="text" class="form-control" id="nameprenda" aria-describedby="namehelp" autocomplete="name" name="name" required>

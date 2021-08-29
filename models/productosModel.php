@@ -2,7 +2,7 @@
 
 header("Content-Type: application/json");
 include_once("../Controller/userController.php");
-$_POST = json_decode(file_get_contents("php://input"), true);
+$data = json_decode(file_get_contents("php://input"), true);
 $_DELETE = json_decode(file_get_contents("php://input"), true);
 $_UPDATE = json_decode(file_get_contents("php://input"), true);
 $_VIEW  = json_decode(file_get_contents("php://input"), true);
@@ -22,12 +22,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         while ($data = $stmt->fetch_assoc()) {
 
-            $generos[]=$data;
+            $productos[]=$data;
+            
         }
 
-        $generos=json_encode($generos);
+        $productos=json_encode($productos);
 
-        echo $generos;
+        echo $productos;
 
 
         break;
@@ -36,10 +37,20 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $con=User::conexionMysql();
 
-        $name = $_POST['name'];
+        $name=$data->name;
+
+        // $precio=$_POST['precio'];
+        // $talla=$_POST['talla'];
+        // $cantidad=$_POST['cantidad'];
+        // $imagen=$_POST['imagen'];
+        // $id_categoria=$_POST['id_categoria'];
+
+        // $filename=time().'.'.$imagen->extension();
+
+        // $imagen->moved(move_uploaded_file('../assets/imgproductos',$filename));
 
 
-        $query = "insert into generos (name) values ('$name')";
+        // $query = "insert into productos (name,precio,talla,cantidad,imagen,categoria_id_categoria) values ('$name','$precio','$talla','$cantidad','$imagen','$id_categoria')";
 
         if (mysqli_query($con, $query)) {
             $resultado = array(
@@ -54,21 +65,13 @@ switch ($_SERVER['REQUEST_METHOD']) {
             $resultado = array(
 
                 "codigoResultado" => 0,
-                "mensaje" => "No guardado"
-            );
+                "mensaje" => "No guardado",
+                "imagen"=>$name
+                );
             $con->close();
 
             echo json_encode($resultado);
         }
-
-
-        // $resultado=array(
-
-        //     "Nombre"=>$name
-        // );
-
-        // echo json_encode($resultado);
-
 
         break;
     
@@ -79,7 +82,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $id_genero = $_DELETE['id_genero'];
          
-        $query = "delete from generos where id_genero='$id_genero'";
+        $query = "delete from productos where id_genero='$id_genero'";
 
         if (mysqli_query($con, $query)) {
             $resultado = array(
@@ -117,7 +120,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         // );
 
-        $query = "update generos set name='$name' where id_genero='$id_genero'";
+        $query = "update productos set name='$name' where id_genero='$id_genero'";
 
         if (mysqli_query($con, $query)) {
             $resultado = array(
