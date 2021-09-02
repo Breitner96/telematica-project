@@ -5,7 +5,7 @@ include_once("../Controller/userController.php");
 
 // $_POST = json_decode(file_get_contents("php://input"), true);
 $_DELETE = json_decode(file_get_contents("php://input"), true);
-// $_UPDATE = json_decode(file_get_contents("php://input"), true);
+$_PUT = json_decode(file_get_contents("php://input"),true);
 $_VIEW  = json_decode(file_get_contents("php://input"), true);
 // $_VIEW = json_decode(file_get_contents("php://input"), true);
 
@@ -14,7 +14,7 @@ switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
         # code...
 
-        $con=User::conexionMysql();
+        $con = User::conexionMysql();
 
 
         $query = "select id_producto,productos.name,precio,talla,cantidad,imagen,categorias.name as categoria,categorias.id_categoria from productos
@@ -24,11 +24,10 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         while ($data = $stmt->fetch_assoc()) {
 
-            $productos[]=$data;
-            
+            $productos[] = $data;
         }
 
-        $productos=json_encode($productos);
+        $productos = json_encode($productos);
 
         echo $productos;
 
@@ -37,78 +36,133 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     case 'POST':
 
-        $con=User::conexionMysql();
+        $con = User::conexionMysql();
 
-        $name=$_POST['name'];
-        $precio=$_POST['precio'];
-        $talla=$_POST['talla'];
-        $cantidad=$_POST['cantidad'];
-        $id_categoria=$_POST['id_categoria'];
-
-
-        $imagename=$_FILES['imagen']['name'];
-
-        $validatextension=array("jpg","jpeg","png");
-
-        $extension=pathinfo($imagename,PATHINFO_EXTENSION);
-
-        if(in_array($extension,$validatextension)){
-
-            $nameuploadimg=time().'.'.$extension;
-
-            $upload_path='../assets/imgproduct/'.$nameuploadimg;
-
-            if (move_uploaded_file($_FILES['imagen']['tmp_name'],$upload_path)) {
-                # code...
+        $_method = $_POST['_method'];
+        $name = $_POST['name'];
+        $precio = $_POST['precio'];
+        $talla = $_POST['talla'];
+        $cantidad = $_POST['cantidad'];
+        $id_categoria = $_POST['id_categoria'];
 
 
-                $query = "insert into productos (name,precio,talla,cantidad,imagen,categoria_id_categoria) values ('$name','$precio','$talla','$cantidad','$nameuploadimg','$id_categoria')";
 
-                if (mysqli_query($con, $query)) {
-                    $resultado = array(
-        
-                        "codigoResultado" => 1,
-                        "mensaje" => "Producto Creado Correctamente"
-        
-                    );
-                    $con->close();
-                    
+
+        if ($_method == 'PUT') {
+            # code...
+
+            $imagenanterior = $_POST['imagenanterior'];
+            $id_producto = $_POST['id_producto'];
+
+            $imagename = $_FILES['imagen']['name'];
+
+            $validatextension = array("jpg", "jpeg", "png");
+
+            $extension = pathinfo($imagename, PATHINFO_EXTENSION);
+
+            if (in_array($extension, $validatextension)) {
+
+                $nameuploadimg = time() . '.' . $extension;
+
+                $upload_path = '../assets/imgproduct/' . $nameuploadimg;
+
+                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $upload_path)) {
+                    # code...
+
+
+                    $query = "update productos set name='$name', precio='$precio',talla='$talla', cantidad='$cantidad',imagen='$nameuploadimg',categoria_id_categoria='$id_categoria' where id_producto=' $id_producto'";
+
+                    if (mysqli_query($con, $query)) {
+
+                        unlink('../assets/imgproduct/' . $imagenanterior);
+
+                        $resultado = array(
+
+                            "codigoResultado" => 1,
+                            "mensaje" => "Producto Actualizado Correctamente"
+
+                        );
+                        $con->close();
+                    } else {
+                        $resultado = array(
+
+                            "codigoResultado" => 0,
+                            "mensaje" => "No se logro Actualizar"
+                        );
+                        $con->close();
+                    }
                 } else {
+
                     $resultado = array(
-        
+
                         "codigoResultado" => 0,
-                        "mensaje" => "No se logro crear"
+                        "mensaje" => "No guardado en carpeta"
+                        // "name"=>$name
                     );
-                    $con->close();
-        
                 }
+            } else {
 
-                
-
-            }
-
-            else{
 
                 $resultado = array(
 
                     "codigoResultado" => 0,
-                    "mensaje" => "No guardado en carpeta"
-                    // "name"=>$name
-                    );
-
-            }
-
-        }
-
-        else{
-
-
-            $resultado = array(
-
-                "codigoResultado" => 0,
-                "mensaje" => "Extension imagen no valida, permitido solo jpg,jpeg y png"
+                    "mensaje" => "Extension imagen no valida, permitido solo jpg,jpeg y png"
                 );
-                
+            }
+        } else {
+
+            $imagename = $_FILES['imagen']['name'];
+
+            $validatextension = array("jpg", "jpeg", "png");
+
+            $extension = pathinfo($imagename, PATHINFO_EXTENSION);
+
+            if (in_array($extension, $validatextension)) {
+
+                $nameuploadimg = time() . '.' . $extension;
+
+                $upload_path = '../assets/imgproduct/' . $nameuploadimg;
+
+                if (move_uploaded_file($_FILES['imagen']['tmp_name'], $upload_path)) {
+                    # code...
+
+
+                    $query = "insert into productos (name,precio,talla,cantidad,imagen,categoria_id_categoria) values ('$name','$precio','$talla','$cantidad','$nameuploadimg','$id_categoria')";
+
+                    if (mysqli_query($con, $query)) {
+                        $resultado = array(
+
+                            "codigoResultado" => 1,
+                            "mensaje" => "Producto Creado Correctamente"
+
+                        );
+                        $con->close();
+                    } else {
+                        $resultado = array(
+
+                            "codigoResultado" => 0,
+                            "mensaje" => "No se logro crear"
+                        );
+                        $con->close();
+                    }
+                } else {
+
+                    $resultado = array(
+
+                        "codigoResultado" => 0,
+                        "mensaje" => "No guardado en carpeta"
+                        // "name"=>$name
+                    );
+                }
+            } else {
+
+
+                $resultado = array(
+
+                    "codigoResultado" => 0,
+                    "mensaje" => "Extension imagen no valida, permitido solo jpg,jpeg y png"
+                );
+            }
         }
 
         echo json_encode($resultado);
@@ -116,28 +170,28 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
 
         break;
-    
+
     case 'DELETE':
 
 
-        $con=User::conexionMysql();
+        $con = User::conexionMysql();
 
         $id_producto = $_DELETE['id_producto'];
 
-        $imagen=getImage($id_producto);
+        $imagen = getImage($id_producto);
 
 
 
-        unlink('../assets/imgproduct/'.$imagen);
+        unlink('../assets/imgproduct/' . $imagen);
 
         // $response=array(
         //     "codigoResultado"=>0,
         //     "imagen"=>$imagen
-    
+
         // );
 
         // echo json_encode($response);
-    
+
         $query = "delete from productos where id_producto='$id_producto'";
 
 
@@ -157,99 +211,93 @@ switch ($_SERVER['REQUEST_METHOD']) {
                 "mensaje" => "No se logro borrar"
             );
             $con->close();
-
-            
         }
         echo json_encode($resultado);
 
 
         break;
 
-    case 'UPDATE':
+    case 'PUT':
 
-        $con=User::conexionMysql();
+        $con = User::conexionMysql();
 
-        $name = $_UPDATE['name'];
-        $id_genero = $_UPDATE['id_genero'];
+        $name=$_PUT['name'];
+        $precio=$_PUT['precio'];
+        $talla=$_PUT['talla'];
+        $cantidad=$_PUT['cantidad'];
+        $id_categoria=$_PUT['id_categoria'];
+        $id_producto=$_PUT['id_producto'];
 
-        // $resultado=array(
-        //     "valorid"=>$id_genero,
-        //     "name"=>$name
-
-        // );
-
-        $query = "update productos set name='$name' where id_genero='$id_genero'";
+        $query = "update productos set name='$name',precio='$precio',talla='$talla',cantidad='$cantidad', categoria_id_categoria='$id_categoria' where id_producto=' $id_producto'";
 
         if (mysqli_query($con, $query)) {
             $resultado = array(
 
                 "codigoResultado" => 1,
-                "mensaje" => "Genero Editado Correctamente",
+                "mensaje" => "Producto Editado Correctamente",
 
             );
             $con->close();
-            echo json_encode($resultado);
+            
         } else {
             $resultado = array(
 
                 "codigoResultado" => 0,
-                "mensaje" => "No guardado"
+                "mensaje" => "No Se logro Editar el Producto"
             );
             $con->close();
 
-            echo json_encode($resultado);
+            
         }
 
+        echo json_encode($resultado);
         break;
 
     case 'VIEW':
 
-        $con=User::conexionMysql();
+        $con = User::conexionMysql();
 
-        $id_producto=$_VIEW['id_producto'];
+        $id_producto = $_VIEW['id_producto'];
 
         $query = "select imagen from productos where id_producto ='$id_producto'";
 
-        $stmt=mysqli_query($con,$query);
-        
-        
-        
-        while($data=$stmt->fetch_assoc()){
-    
-            $users=$data;
-        
+        $stmt = mysqli_query($con, $query);
+
+
+
+        while ($data = $stmt->fetch_assoc()) {
+
+            $users = $data;
         }
 
-        $response=array(
+        $response = array(
 
-            "name_imagen"=>$users['imagen'],
+            "name_imagen" => $users['imagen'],
         );
 
         echo json_encode($response);
 
         break;
-   
 }
 
-function getImage($id){
+function getImage($id)
+{
 
-    $con=User::conexionMysql();
+    $con = User::conexionMysql();
 
     $query = "select imagen from productos where id_producto='$id'";
 
-    $stmt=mysqli_query($con, $query);
+    $stmt = mysqli_query($con, $query);
 
-    while($data=$stmt->fetch_assoc()){
+    while ($data = $stmt->fetch_assoc()) {
 
-        $imagen=$data['imagen'];
-    
+        $imagen = $data['imagen'];
     }
 
-  
+
 
     // unlink('../assets/imgproduct/'.$imagen['imagen']);
     $con->close();
 
     return $imagen;
-
 }

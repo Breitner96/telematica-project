@@ -157,6 +157,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">precio</th>
+                  <th scope="col">Cantidad Disponible</th>
                   <th scope="col">Categoria</th>
                   <th scope="col">Componentes</th>
 

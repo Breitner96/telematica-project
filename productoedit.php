@@ -250,7 +250,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- <script src="dist/js/pages/productos.js"></script> -->
-    <script src="dist/js/pages/editproducto.js"></script>
+    <script src="dist/js/pages/updateproducto.js"></script>
 
 </body>
 
