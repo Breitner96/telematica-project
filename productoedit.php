@@ -153,14 +153,57 @@
                 <div class="container-fluid">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-sm-6 col-md-6 col-lg-6">
-                            <form id="registercategory">
+                            <form id="actualizarproducto" class="mb-3" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="namecategory">Nombre</label>
-                                    <input type="text" class="form-control" id="namecategory" aria-describedby="categoryhelp" autocomplete="name" name="name" required>
-                                    <small id="categoryhelp" class="form-text text-muted">Debe escribir una categoria</small>
+                                    <label for="nameproducto">Nombre</label>
+                                    <input type="text" class="form-control" id="nameproducto" aria-describedby="namehelp" autocomplete="name" name="name" required>
+                                    <small id="namehelp" class="form-text text-muted">Debe escribir un nombre del producto</small>
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="precio">Precio</label>
+                                    <input type="number" class="form-control" id="precio" aria-describedby="preciohelp" autocomplete="number" name="precio" required>
+                                    <small id="preciohelp" class="form-text text-muted">Debe escribir un precio para el producto</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="talla">Talla</label>
+                                    <input type="text" class="form-control" id="talla" aria-describedby="tallahelp" autocomplete="name" name="talla" required>
+                                    <small id="tallahelp" class="form-text text-muted">Debe escribir una talla para el producto</small>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="cantidad">Cantidad</label>
+                                    <input type="number" class="form-control" id="cantidad" aria-describedby="cantidadhelp" autocomplete="number" name="cantidad" required>
+                                    <small id="cantidadhelp" class="form-text text-muted">Debe escribir una cantidad para el producto</small>
+                                </div>
+
+                                <div class="form-group">
+
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="customFile" name="imagen">
+                                        <label class="custom-file-label" for="customFile" id="text">Elige una nueva imagen para tu producto</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group" id="imagenupdate">
+
+                                    
+
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="selectgeneros">Categoria</label>
+                                    <select class="custom-select" id="seleccategoria" aria-describedby="categoriahelp">
+
+                                    </select>
+                                    <small id="categoriahelp" class="form-text text-muted">Indique la categoria a la que pertenece su producto</small>
+
+                                </div>
+
                                 <button type="submit" class="btn btn-dark">Registrar</button>
-                                <a type="submit" class="btn btn-danger ml-3" href="categorias.php">Regresar</a>
+                                <a type="submit" class="btn btn-danger ml-3" href="productos.php">Regresar</a>
                             </form>
                         </div>
                     </div>
@@ -206,7 +249,8 @@
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="dist/js/pages/categorias.js"></script>
+    <!-- <script src="dist/js/pages/productos.js"></script> -->
+    <script src="dist/js/pages/editproducto.js"></script>
 
 </body>
 

@@ -10,7 +10,8 @@ include_once("Controller/userController.php");
 
 $con=User::conexionMysql();
 
-$query = "select * from users";
+$variable=1;
+$query = "select imagen from productos where id_producto ='$variable'";
 
 $stmt=mysqli_query($con,$query);
 
@@ -18,20 +19,13 @@ $stmt=mysqli_query($con,$query);
 
 while($data=$stmt->fetch_assoc()){
 
-    $passwords[]=$data['password'];
-    $emails[]=$data['email'];
-    $ID_users[]=$data['id_usuario'];
-    $names[]=$data['name'];
 
     // print_r($data);
 
-    $users[]=$data;
+    $users=$data;
 
 }
 
-
-print_r($passwords);
-print_r($emails);
 
 
 // foreach ($passwords as $password) {
@@ -53,11 +47,11 @@ print_r($emails);
 // }
 
 
-$users=json_encode($users);
+// $users=json_encode($users);
 
 
 
-print_r($users);
+print_r($users['imagen']);
 
 
 // Free result set

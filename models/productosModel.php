@@ -2,21 +2,23 @@
 
 header("Content-Type: application/json");
 include_once("../Controller/userController.php");
-$data = json_decode(file_get_contents("php://input"), true);
-$_DELETE = json_decode(file_get_contents("php://input"), true);
-$_UPDATE = json_decode(file_get_contents("php://input"), true);
-$_VIEW  = json_decode(file_get_contents("php://input"), true);
 
+// $_POST = json_decode(file_get_contents("php://input"), true);
+$_DELETE = json_decode(file_get_contents("php://input"), true);
+// $_UPDATE = json_decode(file_get_contents("php://input"), true);
+$_VIEW  = json_decode(file_get_contents("php://input"), true);
 // $_VIEW = json_decode(file_get_contents("php://input"), true);
 
 switch ($_SERVER['REQUEST_METHOD']) {
+
     case 'GET':
         # code...
 
         $con=User::conexionMysql();
 
 
-        $query = "select * from productos";
+        $query = "select id_producto,productos.name,precio,talla,cantidad,imagen,categorias.name as categoria,categorias.id_categoria from productos
+        inner JOIN categorias ON productos.categoria_id_categoria=categorias.id_categoria";
 
         $stmt = mysqli_query($con, $query);
 
@@ -37,41 +39,81 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $con=User::conexionMysql();
 
-        $name=$data->name;
-
-        // $precio=$_POST['precio'];
-        // $talla=$_POST['talla'];
-        // $cantidad=$_POST['cantidad'];
-        // $imagen=$_POST['imagen'];
-        // $id_categoria=$_POST['id_categoria'];
-
-        // $filename=time().'.'.$imagen->extension();
-
-        // $imagen->moved(move_uploaded_file('../assets/imgproductos',$filename));
+        $name=$_POST['name'];
+        $precio=$_POST['precio'];
+        $talla=$_POST['talla'];
+        $cantidad=$_POST['cantidad'];
+        $id_categoria=$_POST['id_categoria'];
 
 
-        // $query = "insert into productos (name,precio,talla,cantidad,imagen,categoria_id_categoria) values ('$name','$precio','$talla','$cantidad','$imagen','$id_categoria')";
+        $imagename=$_FILES['imagen']['name'];
 
-        if (mysqli_query($con, $query)) {
-            $resultado = array(
+        $validatextension=array("jpg","jpeg","png");
 
-                "codigoResultado" => 1,
-                "mensaje" => "Genero Creado Correctamente",
+        $extension=pathinfo($imagename,PATHINFO_EXTENSION);
 
-            );
-            $con->close();
-            echo json_encode($resultado);
-        } else {
+        if(in_array($extension,$validatextension)){
+
+            $nameuploadimg=time().'.'.$extension;
+
+            $upload_path='../assets/imgproduct/'.$nameuploadimg;
+
+            if (move_uploaded_file($_FILES['imagen']['tmp_name'],$upload_path)) {
+                # code...
+
+
+                $query = "insert into productos (name,precio,talla,cantidad,imagen,categoria_id_categoria) values ('$name','$precio','$talla','$cantidad','$nameuploadimg','$id_categoria')";
+
+                if (mysqli_query($con, $query)) {
+                    $resultado = array(
+        
+                        "codigoResultado" => 1,
+                        "mensaje" => "Producto Creado Correctamente"
+        
+                    );
+                    $con->close();
+                    
+                } else {
+                    $resultado = array(
+        
+                        "codigoResultado" => 0,
+                        "mensaje" => "No se logro crear"
+                    );
+                    $con->close();
+        
+                }
+
+                
+
+            }
+
+            else{
+
+                $resultado = array(
+
+                    "codigoResultado" => 0,
+                    "mensaje" => "No guardado en carpeta"
+                    // "name"=>$name
+                    );
+
+            }
+
+        }
+
+        else{
+
+
             $resultado = array(
 
                 "codigoResultado" => 0,
-                "mensaje" => "No guardado",
-                "imagen"=>$name
+                "mensaje" => "Extension imagen no valida, permitido solo jpg,jpeg y png"
                 );
-            $con->close();
-
-            echo json_encode($resultado);
+                
         }
+
+        echo json_encode($resultado);
+
+
 
         break;
     
@@ -80,9 +122,25 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
         $con=User::conexionMysql();
 
-        $id_genero = $_DELETE['id_genero'];
-         
-        $query = "delete from productos where id_genero='$id_genero'";
+        $id_producto = $_DELETE['id_producto'];
+
+        $imagen=getImage($id_producto);
+
+
+
+        unlink('../assets/imgproduct/'.$imagen);
+
+        // $response=array(
+        //     "codigoResultado"=>0,
+        //     "imagen"=>$imagen
+    
+        // );
+
+        // echo json_encode($response);
+    
+        $query = "delete from productos where id_producto='$id_producto'";
+
+
 
         if (mysqli_query($con, $query)) {
             $resultado = array(
@@ -92,7 +150,6 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
             );
             $con->close();
-            echo json_encode($resultado);
         } else {
             $resultado = array(
 
@@ -101,8 +158,9 @@ switch ($_SERVER['REQUEST_METHOD']) {
             );
             $con->close();
 
-            echo json_encode($resultado);
+            
         }
+        echo json_encode($resultado);
 
 
         break;
@@ -146,7 +204,52 @@ switch ($_SERVER['REQUEST_METHOD']) {
 
     case 'VIEW':
 
+        $con=User::conexionMysql();
 
+        $id_producto=$_VIEW['id_producto'];
+
+        $query = "select imagen from productos where id_producto ='$id_producto'";
+
+        $stmt=mysqli_query($con,$query);
+        
+        
+        
+        while($data=$stmt->fetch_assoc()){
+    
+            $users=$data;
+        
+        }
+
+        $response=array(
+
+            "name_imagen"=>$users['imagen'],
+        );
+
+        echo json_encode($response);
 
         break;
+   
+}
+
+function getImage($id){
+
+    $con=User::conexionMysql();
+
+    $query = "select imagen from productos where id_producto='$id'";
+
+    $stmt=mysqli_query($con, $query);
+
+    while($data=$stmt->fetch_assoc()){
+
+        $imagen=$data['imagen'];
+    
+    }
+
+  
+
+    // unlink('../assets/imgproduct/'.$imagen['imagen']);
+    $con->close();
+
+    return $imagen;
+
 }

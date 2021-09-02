@@ -47,8 +47,8 @@ function Listproductos() {
                 <td>${item.id_producto}</td>
                 <td>${item.name}</td>
                 <td>${item.precio}</td>
-                <td><img src="data:image/jgp;" alt="12345"></td>  
-                <td class="d-flex justify-content-center"><a type="button" class="btn btn-danger" onclick="deletegenerotoCategoria(${item.id_categoria},${item.id_genero})"><i class="fas fa-trash-alt"></i></a></td>    
+                <td>${item.categoria}</td>  
+                <td class="d-flex justify-content-center"><a type="button" class="btn btn-dark mr-3" href="productoedit.php?id_producto=${item.id_producto}&name=${item.name}&precio=${item.precio}&talla=${item.talla}&cantidad=${item.cantidad}&imagen=${item.imagen}&id_categoria=${item.id_categoria}&categoria=${item.categoria}"><i class="fas fa-edit"></i></a><a type="button" class="btn btn-danger" onclick="deleteproducto(${item.id_producto})"><i class="fas fa-trash-alt"></i></a></td>    
 
             </tr>
             `;

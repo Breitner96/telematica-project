@@ -157,7 +157,7 @@
                   <th scope="col">#</th>
                   <th scope="col">Nombre</th>
                   <th scope="col">precio</th>
-                  <th scope="col">Imagen</th>
+                  <th scope="col">Categoria</th>
                   <th scope="col">Componentes</th>
 
                 </tr>
@@ -210,6 +210,7 @@
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="dist/js/pages/productos.js"></script>
+  <script src="dist/js/pages/editproducto.js"></script>
 
 </body>
 
