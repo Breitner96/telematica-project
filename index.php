@@ -20,7 +20,12 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
     </style>
+
+
     <link rel="stylesheet" href="style.css">
+
+
+
 
 </head>
 
@@ -74,11 +79,11 @@
                                 <i class="fa fa-caret-down"></i>
                             </button>
                             <div class="dropdown-content" id="generos">
-
-
                                 
+
                             </div>
                         </div>
+                    </li>
 
                     <li>
                         <a href="pedidos.php">
@@ -112,6 +117,7 @@
                     </li>
 
                 </ul>
+
             </div>
 
         </nav>
@@ -315,8 +321,7 @@
     </footer>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="app.js"></script>
-    <script src="login-registerController.js"></script>
+    <script src="js/app.js"></script>
 
 </body>
 

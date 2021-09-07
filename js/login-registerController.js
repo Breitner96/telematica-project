@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(datosaarray);
 
     axios({
-      url: "login.php",
+      url: "../login.php",
       method: "post",
       responseType: "json",
       data: JSON.stringify(datosaarray),
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(datosaarray);
 
     axios({
-      url: "register.php",
+      url: "../register.php",
       method: "post",
       responseType: "json",
       data: JSON.stringify(datosaarray),
