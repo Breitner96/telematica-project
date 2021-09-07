@@ -27,7 +27,7 @@ header {
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 10;
+  /* z-index: 10; */
   background: white;
   padding: 1rem;
 }
@@ -174,7 +174,7 @@ footer {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 /* Style the links inside the dropdown */
@@ -202,6 +202,7 @@ footer {
 /* Show the dropdown menu when the user moves the mouse over the dropdown button */
 .dropdown:hover .dropdown-content {
   display: block;
+  
 }
 
 /* #categoria:hover .dropdown-content{
@@ -211,9 +212,8 @@ footer {
 } */
 
 
+
 /* submenu categorias */
-
-
 
 
 /* #categoria:hover{

@@ -15,6 +15,7 @@ listGeneros();
 
 let slideIndex = 0;
 
+
 let miCookie = readCookie("name");
 
 showUsers(miCookie);
@@ -151,8 +152,15 @@ function listGeneros() {
               console.log(arraycategorygenero);
 
               arraygenero.forEach((element) => {
+
+                
                 element.addEventListener("mouseover", function (e) {
+
+                  // console.log(categoriasedit);
+                  
                   namesgeneros.forEach((element2) => {
+
+                    
                     if (element.getAttribute('value') == element2) {
                       // console.log(element2);
 
@@ -168,7 +176,10 @@ function listGeneros() {
                       document.getElementById(element2).style.fontSize =
                         "1.6rem";
 
+                      // document.getElementById(element2).style.zIndex="1";
+
                       let category = [];
+                      // var categoriasedit=[];
 
                       arraycategorygenero.forEach((element3) => {
                         // category.push(element3.element2)
@@ -177,6 +188,7 @@ function listGeneros() {
                           // console.log(element3[element2]);
 
                           category.push(element3[element2]);
+                          // categoriasedit.push(element3[element2]);
 
                           // console.log("COrrect");
                         }
@@ -191,25 +203,38 @@ function listGeneros() {
                       category.forEach((element) => {
                         mostrar.innerHTML += `
 
-                        <a href="productosindex.php?namecategory=${element}">${element}</a>
+                        <a href="pedidos.php">${element}</a>
 
                         `;
                       });
+
+                      
+
                     }
+                    
+
+
                   });
+
+               
                 });
+
+                
 
                 element.addEventListener("mouseout", function (e) {
 
-                  console.log(element.getAttribute('value'));
+                  // console.log(element.getAttribute('value'));
                   namesgeneros.forEach((element2) => {
                     if (element.getAttribute('value') == element2) {
-                      console.log(element2);
+                      // console.log(element2);
 
                       document.getElementById(element2).style.display = "none";
                     }
                   });
                 });
+
+
+
               });
             } else {
               console.log("Tabla Vacia");
@@ -228,3 +253,5 @@ function listGeneros() {
       console.log(err);
     });
 }
+
+
