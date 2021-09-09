@@ -6,7 +6,7 @@ $_POST = json_decode(file_get_contents("php://input"), true);
 $_DELETE = json_decode(file_get_contents("php://input"), true);
 $_UPDATE = json_decode(file_get_contents("php://input"), true);
 
-// $_VIEW = json_decode(file_get_contents("php://input"), true);
+$_SHOW = json_decode(file_get_contents("php://input"), true);
 
 switch ($_SERVER['REQUEST_METHOD']) {
     case 'GET':
@@ -138,6 +138,34 @@ switch ($_SERVER['REQUEST_METHOD']) {
             echo json_encode($resultado);
         }
 
+
+        break;
+
+    case 'SHOW':
+
+        $con = User::conexionMysql();
+
+        $name_category = $_SHOW['name_category'];
+
+        $query = "select * from categorias where name='$name_category'";
+
+        $stmt = mysqli_query($con, $query);
+
+
+
+        while($data=$stmt->fetch_assoc()){
+
+            $product=$data;
+        
+        }
+        
+
+        // $response = array(
+
+        //     "name"=>$name_category
+        // );
+
+        echo json_encode($product);
 
         break;
 }

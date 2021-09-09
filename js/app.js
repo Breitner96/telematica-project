@@ -15,8 +15,8 @@ listGeneros();
 
 let slideIndex = 0;
 
-
 let miCookie = readCookie("name");
+let categoriasedit = [];
 
 showUsers(miCookie);
 showSlides();
@@ -107,13 +107,14 @@ function listGeneros() {
         for (let item of res.data) {
           resp.innerHTML += `
             
-              
+            
 
-              <div id="genero${item.name}" class="${item.name}" value="${item.name}">
+             <div id="genero${item.name}" class="${item.name}" value="${item.name}">
 
-                <p>${item.name}</p>
+                
+              <p>${item.name}</p>
 
-                <div id="${item.name}" class="${item.name}">
+              <div id="${item.name}" class="${item.name}">
 
                   
 
@@ -152,16 +153,12 @@ function listGeneros() {
               console.log(arraycategorygenero);
 
               arraygenero.forEach((element) => {
-
-                
                 element.addEventListener("mouseover", function (e) {
-
                   // console.log(categoriasedit);
-                  
-                  namesgeneros.forEach((element2) => {
 
-                    
-                    if (element.getAttribute('value') == element2) {
+                  // categoriasedit=[];
+                  namesgeneros.forEach((element2) => {
+                    if (element.getAttribute("value") == element2) {
                       // console.log(element2);
 
                       document.getElementById(element2).style.position =
@@ -179,7 +176,7 @@ function listGeneros() {
                       // document.getElementById(element2).style.zIndex="1";
 
                       let category = [];
-                      // var categoriasedit=[];
+                      
 
                       arraycategorygenero.forEach((element3) => {
                         // category.push(element3.element2)
@@ -187,8 +184,15 @@ function listGeneros() {
                         if (element2 == Object.keys(element3)) {
                           // console.log(element3[element2]);
 
+
+                          // console.log(res.data);
                           category.push(element3[element2]);
-                          // categoriasedit.push(element3[element2]);
+
+                          // category.push({
+                          //   [element.genero]: element.category,
+                          // });
+                          
+                          categoriasedit.push(element3[element2]);
 
                           // console.log("COrrect");
                         }
@@ -203,38 +207,24 @@ function listGeneros() {
                       category.forEach((element) => {
                         mostrar.innerHTML += `
 
-                        <a href="pedidos.php">${element}</a>
-
+                        <a href="productosindex.php?name_category=${element}">${element}</a>
+                        
                         `;
                       });
-
-                      
-
                     }
-                    
-
-
                   });
-
-               
                 });
 
-                
-
                 element.addEventListener("mouseout", function (e) {
-
                   // console.log(element.getAttribute('value'));
                   namesgeneros.forEach((element2) => {
-                    if (element.getAttribute('value') == element2) {
+                    if (element.getAttribute("value") == element2) {
                       // console.log(element2);
 
                       document.getElementById(element2).style.display = "none";
                     }
                   });
                 });
-
-
-
               });
             } else {
               console.log("Tabla Vacia");
@@ -254,4 +244,13 @@ function listGeneros() {
     });
 }
 
+categoriasedit.forEach((element) => {
 
+  // document.getElementById(element).addEventListener('click', function(e){
+
+  //   console.log(e);
+
+  // })
+
+  console.log(element);
+})

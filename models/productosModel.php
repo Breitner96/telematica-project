@@ -7,7 +7,7 @@ include_once("../Controller/userController.php");
 $_DELETE = json_decode(file_get_contents("php://input"), true);
 $_PUT = json_decode(file_get_contents("php://input"),true);
 $_VIEW  = json_decode(file_get_contents("php://input"), true);
-// $_VIEW = json_decode(file_get_contents("php://input"), true);
+$_SHOW = json_decode(file_get_contents("php://input"), true);
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
@@ -276,6 +276,32 @@ switch ($_SERVER['REQUEST_METHOD']) {
         );
 
         echo json_encode($response);
+
+        break;
+
+    case 'SHOW':
+
+        $con = User::conexionMysql();
+
+        $id_category = $_SHOW['id_category'];
+
+        $query = "select * from productos where categoria_id_categoria ='$id_category'";
+
+        $stmt = mysqli_query($con, $query);
+
+        $product=array(); 
+
+        while ($data = $stmt->fetch_assoc()) {
+
+            array_push($product,$data);
+        }
+
+        // $response = array(
+
+        //     "name"=>$id_prodcuto
+        // );
+
+        echo json_encode($product);
 
         break;
 }

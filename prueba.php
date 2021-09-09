@@ -1,31 +1,29 @@
 <?php
 
-// Ejemplo practico Inicio Sesion
-
-// include_once("verificarSession.php");
-// session_start();
 
 header("Content-Type: application/json");
 include_once("Controller/userController.php");
 
 $con=User::conexionMysql();
 
-$variable=1;
-$query = "select imagen from productos where id_producto ='$variable'";
+// $variable=1;
+$query = "select * from productos where categoria_id_categoria=1";
 
 $stmt=mysqli_query($con,$query);
 
-
+$product=array(); 
 
 while($data=$stmt->fetch_assoc()){
 
 
-    // print_r($data);
-
-    $users=$data;
+    // echo "Entro";
+    array_push($product,$data);
 
 }
 
+
+
+print_r(json_encode($product));
 
 
 // foreach ($passwords as $password) {
@@ -51,7 +49,7 @@ while($data=$stmt->fetch_assoc()){
 
 
 
-print_r($users['imagen']);
+// print_r($users['imagen']);
 
 
 // Free result set

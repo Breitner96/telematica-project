@@ -41,28 +41,16 @@
 
                 <div id="mySidebar" class="sidebar">
                     <a href="javascript:void(0)" class="closebtn " onclick="closeNav()">×</a>
-                    <a href="index.php">Inicio</a>
-                    <button class="accordion">Categorias</button>
-                    <div class="panel">
-                        <button class="accordion1">Hombres</button>
-                        <div class="panel1">
-                            <a href="#">Zapatos</a>
-                            <a href="#">Busos</a>
-                            <a href="#">Pantalones</a>
-                        </div>
 
-                        <button class="accordion1">Mujeres</button>
-                        <div class="panel1">
-                            <a href="#">Zapatos</a>
-                            <a href="#">Busos</a>
-                            <a href="#">Pantalones</a>
-                        </div>
-                    </div>
+                    <p class="usuarioname user"></p>
+                    <a href="index.php">Inicio</a>
+                    <a href="#">Categorias</a>
                     <a href="pedidos.php">Mis pedidos</a>
                     <a href="#"><span class="material-icons-outlined">
                             shopping_cart
                         </span></a>
-                    <a href="login-register.php">Login/Registro</a>
+                    <a class="login" href="login-register.php">Login/Registro</a>
+                    <a class="usermovil" href="logout.php">Cerrar Sesion</a>
 
                 </div>
 
@@ -80,42 +68,51 @@
                             <p class="animation">Inicio</p>
                         </a></li>
                     <li>
+
                         <div class="dropdown">
-                            <p class="dropbtn">Categorias</p>
-                            <div class="dropdown-content">
+                            <button class="dropbtn">Categorias
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content" id="generos">
 
-                                <div class="dropdown1">
-                                    <a href="#"><span class="dropbtn1">Mujeres</span></a>
-                                    <div class="dropdown-content1">
-                                        <a href="#">Camisas</a>
-                                        <a href="#">Zapatos</a>
-                                        <a href="#">Pantalones</a>
-                                    </div>
-                                </div>
 
-                                <div class="dropdown2">
-                                    <a href=""><span class="dropbtn2">Hombres</span></a>
-                                    <div class="dropdown-content2">
-                                        <a href="#">Camisas</a>
-                                        <a href="#">Zapatos</a>
-                                        <a href="#">Pantalones</a>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </li>
-                    <li><a href="pedidos.php">
+
+                    <li>
+                        <a href="pedidos.php">
                             <p class="animation">Mis pedidos</p>
-                        </a></li>
-                    <li><a href="#">
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="#">
                             <p class="animation"><span class="material-icons-outlined md-36">
                                     shopping_cart
                                 </span></p>
-                        </a></li>
-                    <li class="login"><a href="login-register.php">
+                        </a>
+                    </li>
+
+                    <li class="login1">
+                        <a href="login-register.php">
                             <p class="animation">Login/Resgistro</p>
-                        </a></li>
+                        </a>
+
+                    </li>
+
+                    <li class="user1">
+                        <span class="usuarioname1"></span>
+                        <a href="logout.php">
+                            <span class="material-icons-outlined md-36">
+                                logout
+                            </span>
+                        </a>
+
+                    </li>
+
                 </ul>
+
             </div>
 
         </nav>
@@ -227,7 +224,7 @@
 
 
     </footer>
-    
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/app.js"></script>
