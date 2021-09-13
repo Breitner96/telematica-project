@@ -122,21 +122,30 @@
     </header>
 
     <main>
-        <section class="main-information" id="productos">
+        <section class="main-information Quienesomos" id="product">
 
-        <div class="col-md-6">
-                <img src="../assets/imgproduct/${item.imagen}" alt="${item.name}" style="width: 100%">
-              </div>
-              <div class="col-md-4">
-                <div class="card-body">
-                  <h5 class="card-title mb-2">${item.name}</h5>
-                  <p class="card-text">Cantidad Disponible: ${item.cantidad}</p>
-                  <p class="card-text">Precio: ${item.precio}</p>
-                  <p class="card-text">Talla: ${item.talla}</p>
-                  <p class="card-text">Categoria: ${item.categoria}</p>
+            <div class="infoproduct">
 
-                </div>
-              </div>
+                <h2>¿Quiénes somos?</h2>
+
+                <article>
+
+                    <p>Precio: $200000</p>
+                    <p>Precio: $200000</p>
+                    <p>Precio: $200000</p>
+                    <p>Precio: $200000</p>
+                    <p>Precio: $200000</p>
+
+
+
+                </article>
+
+            </div>
+
+            <div class="img-doc">
+                <img src="assets/img/somos/quienessomos.jpg" class="img-info" alt="Quines somos">
+
+            </div>
 
 
 

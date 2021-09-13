@@ -8,6 +8,7 @@ $_DELETE = json_decode(file_get_contents("php://input"), true);
 $_PUT = json_decode(file_get_contents("php://input"),true);
 $_VIEW  = json_decode(file_get_contents("php://input"), true);
 $_SHOW = json_decode(file_get_contents("php://input"), true);
+$_PRODUCT = json_decode(file_get_contents("php://input"), true);
 
 switch ($_SERVER['REQUEST_METHOD']) {
 
@@ -286,6 +287,32 @@ switch ($_SERVER['REQUEST_METHOD']) {
         $id_category = $_SHOW['id_category'];
 
         $query = "select * from productos where categoria_id_categoria ='$id_category'";
+
+        $stmt = mysqli_query($con, $query);
+
+        $product=array(); 
+
+        while ($data = $stmt->fetch_assoc()) {
+
+            array_push($product,$data);
+        }
+
+        // $response = array(
+
+        //     "name"=>$id_prodcuto
+        // );
+
+        echo json_encode($product);
+
+        break;
+
+    case 'PRODUCT':
+
+        $con = User::conexionMysql();
+
+        $id_product = $_PRODUCT['id_product'];
+
+        $query = "select productos.name,productos.precio,productos.talla,productos.cantidad,productos.imagen,categorias.name as categoria from productos inner join categorias on productos.categoria_id_categoria = categorias.id_categoria where id_producto='$id_product'";
 
         $stmt = mysqli_query($con, $query);
 

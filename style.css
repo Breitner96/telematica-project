@@ -568,6 +568,10 @@ footer {
   order: 2;
 }
 
+.infoproduct {
+  order: 2;
+}
+
 .img-doc {
   order: 1;
 }
@@ -759,6 +763,15 @@ button:hover {
     align-self: center;
     max-width: 500px;
   }
+
+  .infoproduct{
+
+    width: 50%;
+    /* align-self: center; */
+    max-width: 500px;
+
+  }
+
   .img-doc {
     width: 50%;
   }
@@ -771,7 +784,16 @@ button:hover {
     font-size: 2rem;
   }
 
+  .infoproduct h2{
+    font-size: 2rem;
+
+  }
+
   .info article {
+    font-size: 1.6rem;
+  }
+
+  .infoproduct article {
     font-size: 1.6rem;
   }
 }
